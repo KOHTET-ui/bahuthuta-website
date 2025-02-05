@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ဗဟုသုတဟင်းလေးအိုးကြီး</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Padauk", sans-serif;
+        }
+
+        :root {
+            --primary-color: #5768ec;
+            --secondary-color: #6cc0e4;
+            --background-color: #FFF8DC;
+            --text-color: #333;
+        }
+
+        body {
+            background-]color: var(--background-color);
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #FFF8DC;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #FFF8DC;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            max-width: 400px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 2px solid var(--secondary-color);
+            border-radius: 4px;
+            background: #FFF8DC;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #FFF8DC;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--primary-color);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .content-section {
+            background: #FFF;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
+            margin-bottom: 1.5rem;
+            border: 1px solid #DEB887;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .post-form {
+            background: #FFF;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #DEB887;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #DEB887;
+            border-radius: 4px;
+            background: #FFF8DC;
+        }
+
+        .form-group input[type="file"] {
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: #FFF8DC;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .post {
+            border-bottom: 1px solid #DEB887;
+            padding: 1rem 0;
+            margin-bottom: 1rem;
+        }
+
+        .post img,
+        .post video {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+            border-radius: 4px;
+            border: 1px solid #DEB887;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #FFF8DC;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 3px solid var(--secondary-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .share-button {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            color: #FFF;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .share-button.facebook {
+            background-color: #3b5998;
+        }
+
+        .share-button.twitter {
+            background-color: #1da1f2;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="/api/placeholder/60/60" alt="Logo">
+                <h1>ဗဟုသုတဟင်းလေးအိုးကြီး</h1>
+            </div>
+            <div class="search-bar">
+                <input type="search" placeholder="ရှာဖွေရန်...">
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">ပင်မစာမျက်နှာ</a></li>
+                <li><a href="#post">ပို့စ်တင်ရန်</a></li>
+                <li><a href="#cartoon">ကာတွန်း</a></li>
+                <li><a href="#poems">ကဗျာ</a></li>
+                <li><a href="#literature">စာပေ</a></li>
+                <li><a href="#news">သတင်း</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container main-content">
+        <div class="articles">
+            <section id="post" class="post-form">
+                <h2 class="section-title">အကြောင်းအရာအသစ်တင်ရန်</h2>
+                <form id="newPost">
+                    <div class="form-group">
+                        <label>ခေါင်းစဉ်</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>အကြောင်းအရာ</label>
+                        <textarea rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>ပုံ သို့မဟုတ် ဗီဒီယို</label>
+                        <input type="file" accept="image/*,video/*">
+                    </div>
+                    <button type="submit">တင်မည်</button>
+                </form>
+            </section>
+
+            <section id="posts" class="content-section">
+                <h2 class="section-title">နောက်ဆုံးရ အကြောင်းအရာများ</h2>
+                <div class="post">
+                    <h3>နမူနာ ပို့စ်</h3>
+                    <img src="/api/placeholder/800/400" alt="နမူနာပုံ">
+                    <p>ပို့စ်များ ဤနေရာတွင် ပေါ်လာပါမည်...</p>
+                    <div class="share-buttons">
+                        <a href="#" class="share-button facebook">Facebook တွင်မျှဝေရန်</a>
+                        <a href="#" class="share-button twitter">Twitter တွင်မျှဝေရန်</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <aside class="sidebar">
+            <section class="content-section">
+                <h2 class="section-title">အသုံးပြုနည်း လမ်းညွှန်</h2>
+                <ol>
+                    <li>အပေါ်ဘားမှ "ပို့စ်တင်ရန်" ကို နှိပ်ပါ</li>
+                    <li>ခေါင်းစဉ်နှင့် အကြောင်းအရာကို ရေးသားပါ</li>
+                    <li>ပုံ သို့မဟုတ် ဗီဒီယိုကို ရွေးချယ်ပါ</li>
+                    <li>"တင်မည်" ခလုတ်ကို နှိပ်ပါ</li>
+                </ol>
+            </section>
+            
+            <section class="content-section">
+                <h2 class="section-title">Website လင့်ခ်မျှဝေရန်</h2>
+                <p>ဤ website ကို အခြားသူများနှင့် မျှဝေရန်:</p>
+                <div class="share-buttons">
+                    <a href="#" class="share-button facebook">Facebook</a>
+                    <a href="#" class="share-button twitter">Twitter</a>
+                </div>
+            </section>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <h3>ဗဟုသုတဟင်းလေးအိုးကြီး</h3>
+                <p>လူငယ်များအတွက် အသိပညာ ဗဟုသုတများ စုဆောင်းပေးနေသော website</p>
+            </div>
+            <div>
+                <h3>ဆက်သွယ်ရန်</h3>
+                <p>Email: theinhtetoo007@gmailS.com</p>
+                <p>ဖုန်း: 09-791021259</p>
+            </div>
+            <div>
+                <h3>လမ်းညွှန်</h3>
+                <p>ပို့စ်တင်နည်း</p>
+                <p>စည်းမျဉ်းစည်းကမ်းများ</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Post creation
+        document.getElementById('newPost').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const title = form.querySelector('input[type="text"]').value;
+            const content = form.querySelector('textarea').value;
+            const file = form.querySelector('input[type="file"]').files[0];
+            
+            // Create new post element
+            const post = document.createElement('div');
+            post.className = 'post';
+            
+            // Add title and content
+            post.innerHTML = `
+                <h3>${title}</h3>
+                <p>${content}</p>
+                <div class="share-buttons">
+                    <a href="#" class="share-button facebook">Facebook တွင်မျှဝေရန်</a>
+                    <a href="#" class="share-button twitter">Twitter တွင်မျှဝေရန်</a>
+                </div>
+            `;
+            
+            // Add media if uploaded
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const mediaElement = file.type.startsWith('image/') 
+                        ? `<img src="${event.target.result}" alt="${title}">`
+                        : `<video src="${event.target.result}" controls></video>`;
+                    post.insertAdjacentHTML('beforeend', mediaElement);
+                };
+                reader.readAsDataURL(file);
+            }
+            
+            // Add post to page
+            const postsSection = document.querySelector('#posts');
+            postsSection.insertBefore(post, postsSection.firstChild);
+            
+            // Reset form
+            form.reset();
+        });
+
+        // Share buttons functionality
+        document.querySelectorAll('.share-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = window.location.href;
+                const type = this.classList.contains('facebook') ? 'Facebook' : 'Twitter';
+                window.open(`https://${type.toLowerCase()}.com/share?url=${url}`, 
+                    `Share on ${type}`,
+                    'width=600,height=400');
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-bar input');
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.post').forEach(post => {
+                const text = post.textContent.toLowerCase();
+                post.style.display = text.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
